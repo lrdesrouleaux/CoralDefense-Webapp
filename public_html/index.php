@@ -31,7 +31,7 @@
                         <th style='color: rgb(255,255,255);'>Sensor Monitor</th>
                     </tr>
                 </thead>
-
+                    
                 <tbody>
                     <tr class='active'>
                         <td style='border-right: solid 2px gray;'>Timeid</td>
@@ -65,6 +65,7 @@
                 </tbody>
             </table>
             <!Js script that auto reloads the telemetry table!>
+            <!document.ready forces it to wait for the page to load then runs the get_data.php script every 5000 ms!>
                 <script type="text/javascript">
                     var table = $("#info");
                     $(document).ready(setInterval(function refreshdata() {
@@ -92,12 +93,14 @@
                         <tr>
                             <td style='color: rgb(255,255,255);'>CID=9999</td>
                             <td align='center'>
+                            <!every button has a invisible indicator behind it that the javascript affects so as to not redraw asset!>
                                 <button id=uvoffclickindicator style='display:none'></button>
                                 <button id=uvonclickindicator style='display:none'></button>
                                 <button id="uv_on" style='border-radius:10px 10px 10px 10px; background-color: lightgreen; display:block'>on</button>&nbsp;
                                 <button id="uv_off" style='border-radius:10px 10px 10px 10px; background-color: red; display:block'>off</button>
                             </td>
                             <!js script to send commands without page reload!>
+                            <!similar to sensor monitor js but on click it will load send_arduino_data.php with the key pair of command=#112!>
                                 <script type="text/javascript">
                                     var uvonbutton = $("#uv_on");
                                     var lastclicked = $("#uvonclickindicator");
@@ -237,6 +240,7 @@
                             <td align='center'>Indicator 3 </td>
                         </tr>
                         <tr>
+                        <! indicators weren't implemented arduino side!>
                             <td style='color: rgb(255,255,255);'>CID=9999</td>
                             <td align='center'>
                                 <button class="button button1" style="width: 250px; height: 50px; border-radius:10px 10px 10px 10px; border-style: outset; background-color: lightgreen;">indicator 1</button>
